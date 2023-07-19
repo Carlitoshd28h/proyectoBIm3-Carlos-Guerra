@@ -23,8 +23,29 @@ public class Agendatelefonica1 {
             System.out.println("-------------------------------------------------------");
             System.out.println("Ingrese el numero de opcion ");
             op = teclado.nextInt();
+            if (op == 1) {
+                guardarContacto();
+            } else if (op == 2) {
+                System.out.println("-----Los Datos de los Contactos son: -----");
+                verTodos();
+            } else if (op == 3) {
+                System.out.println("-------Buscar Contacto-------");
+                System.out.println("Ingrese el Numero de telefono: ");
+                Scanner sd = new Scanner(System.in);
+                String numero = sd.nextLine();
+                System.out.println(vertodosloscontacto(numero));
+
+            } else if (op == 4) {
+                System.out.println("-------Actualizar Contacto-------");
+                System.out.println("Ingrese el Numero de telefono: ");
+                Scanner sd = new Scanner(System.in);
+                String numero = sd.nextLine();
+                System.out.println(ActualizarContacto(numero));
+            } else if (op == 5) {
+                System.out.println("Programa Finalizado");
+            } else {
+                System.out.println("OPCION INCORRECTA");
+            }
         }
-
     }
-
 }

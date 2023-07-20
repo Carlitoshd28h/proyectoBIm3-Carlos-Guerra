@@ -45,7 +45,82 @@ public class Agendatelefonica1 {
                 System.out.println("Programa Finalizado");
             } else {
                 System.out.println("OPCION INCORRECTA");
+                {
+    static public String actualizarContacto(String telefono) {
+        Scanner sr = new Scanner(System.in);
+        int posicion = -1;
+        for (int i = 0; i < 15; i++) {
+            if (contactos[i] != null) {
             }
+            if (contactos[i].verTelefono().equals(telefono)) {
+
+                System.out.println("Ingrese Nuevo Nombre");
+                String nombre = sr.nextLine();
+                contactos[i].setNombre(nombre);
+                System.out.println("Ingrese Nuevo Domicilio");
+                String domicilio = sr.nextLine();
+                contactos[i].setDomicilio(domicilio);
+                posicion = i;
+                break;
+            }
+        }
+        if (posicion != -1) {
+            return "Nombre: " + contactos[posicion];
+        } else {
+            return "Contacto no Encontrado";
+        }
+    }
+
+    static public String verContacto(String numero) {
+        int posicion = -1;
+        for (int i = 0; i < 10; i++) {
+            if (contactos[i] != null) {
+
+            }
+            if (contactos[i].verTelefono().equals(numero) && contactos != null) {
+                posicion = i;
+                break;
+            }
+        }
+        if (posicion != -1) {
+            return "Nombre: " + contactos[posicion].verNombre() + " Domicilio: " + contactos[posicion].verDomicilio();
+
+        } else {
+            return "Contacto no Encontrado";
+        }
+    }
+
+    static public void guardarContacto() {
+        if (num >= 15) {
+            System.out.println("-------->La Memoria esta Llena<--------");
+        } else {
+            Scanner teclado = new Scanner(System.in);
+            System.out.println("---------Nuevo Contacto----------");
+            System.out.println("Ingrese el numero de Telefono de la Persona");
+            String telefono = teclado.nextLine();
+            System.out.println("Ingrese el Nombre de la Persona");
+            String nombre = teclado.nextLine();
+            System.out.println("Ingrese el Domicilio de la Persona");
+            String domicilio = teclado.nextLine();
+            contactos[num] = new contacto(telefono, nombre, domicilio);
+            System.out.println("------------------------------");
+            System.out.println("Contacto Almacenado");
+            System.out.println("------------------------------");
+            num++;
+        }
+    }
+
+    static public void verTodos() {
+        for (int i = 0; i < num; i++) {
+            System.out.println("Telefono: " + contactos[i].verTelefono());
+            System.out.println("Nombre: " + contactos[i].verNombre());
+            System.out.println("Domicilio: " + contactos[i].verDomicilio());
+            System.out.println("##################################");
+        }
+    }
+
+}
+}
         }
     }
 }
